@@ -63,18 +63,18 @@ describe HangpersonGame do
       before :each do
         @game = HangpersonGame.new('foobar')
       end
-      it 'throws an error when empty', :pending => true do
+      it 'throws an error when empty'do#, :pending => true do
         expect { @game.guess('') }.to raise_error(ArgumentError)
       end
-      it 'throws an error when not a letter', :pending => true do
+      it 'throws an error when not a letter'do#, :pending => true do
         expect { @game.guess('%') }.to raise_error(ArgumentError)
       end
-      it 'throws an error when nil', :pending => true do
+      it 'throws an error when nil'do#, :pending => true do
         expect { @game.guess(nil) }.to raise_error(ArgumentError)
       end
     end
   end
-  describe 'displayed word with guesses', :pending => true do
+  describe 'displayed word with guesses'do#, :pending => true do
     before :each do
       @game = HangpersonGame.new('banana')
     end
@@ -95,15 +95,15 @@ describe HangpersonGame do
     before :each do 
       @game = HangpersonGame.new('dog')
     end
-    it 'should be win when all letters guessed', :pending => true do
+    it 'should be win when all letters guessed'do#, :pending => true do
       guess_several_letters(@game, 'ogd')
       @game.check_win_or_lose.should == :win
     end
-    it 'should be lose after 7 incorrect guesses', :pending => true do
+    it 'should be lose after 7 incorrect guesses'do#, :pending => true do
       guess_several_letters(@game, 'tuvwxyz')
       @game.check_win_or_lose.should == :lose
     end
-    it 'should continue play if neither win nor lose', :pending => true do
+    it 'should continue play if neither win nor lose'do#, :pending => true do
       guess_several_letters(@game, 'do')
       @game.check_win_or_lose.should == :play
     end

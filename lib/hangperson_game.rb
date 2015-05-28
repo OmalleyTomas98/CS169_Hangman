@@ -31,6 +31,10 @@ class HangpersonGame
   end
 	
   def guess(char)
+	if char.nil? or /[^A-Za-z]/.match(char) != nil or char == ''
+		raise ArgumentError.new("Not a valid letter")
+	end
+  
 	if @guesses.include? char or @wrong_guesses.include? char
 		return false
 	end
@@ -43,5 +47,20 @@ class HangpersonGame
 		return true
 	end
   end
-
+  
+  def word_with_guesses
+	@word.gsub(/[^ #{@guesses}]/, '-')
+  end
+  
+  def check_win_or_lose
+	if @wrong_guesses.length >= 7
+		return :lose
+	end
+	
+	if word_with_guesses == @word
+		return :win
+	end
+	
+	:play
+  end
 end
