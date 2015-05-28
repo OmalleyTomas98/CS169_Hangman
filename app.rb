@@ -79,4 +79,14 @@ class HangpersonApp < Sinatra::Base
     erb :lose # You may change/remove this line
   end
   
+  post '/win' do
+    ### YOUR CODE HERE ###
+    redirect '/create', 307
+  end
+  
+  post '/lose' do
+    ### YOUR CODE HERE ###
+    redirect '/create', 307
+  end
+  
 end
